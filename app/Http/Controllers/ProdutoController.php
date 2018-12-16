@@ -13,10 +13,9 @@ class ProdutoController extends Controller
 
     public function cadastrar(Request $request){
     	$produto = new Produto();
-    	$produto->codigo_de_barras = $request->input('codigoDeBarras');
+    	$produto->codigo_de_barras = $request->input('codigodebarras');
     	$produto->descricao = $request->input('descricao');
     	$produto->cadastra();
-
-    	return 'Cadastrado com sucesso';
+		return redirect()->back()->with('message', 'Cadastrado com sucesso');
     }
 }

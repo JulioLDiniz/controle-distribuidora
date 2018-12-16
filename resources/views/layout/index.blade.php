@@ -28,7 +28,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 	<link href="css/paper/themify-icons.css" rel="stylesheet">
-
+	<script src="js/paper/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -155,7 +155,7 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="js/paper/jquery.min.js" type="text/javascript"></script>
+
 <script src="js/paper/bootstrap.min.js" type="text/javascript"></script>
 
 <!--  Checkbox, Radio & Switch Plugins -->
@@ -166,5 +166,8 @@
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="js/paper/paper-dashboard.js"></script>
+
+<!-- Js Customizado -->
+<script src="js/customizado.js"></script>
 
 </html>

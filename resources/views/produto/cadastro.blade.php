@@ -3,14 +3,22 @@
 
 @section('conteudo')
 
+@if(session()->has('message'))
+<script>
+	$(document).ready(function() {
+		demo.showNotification('success',"{{ session()->get('message') }}");
+	});
+</script>
+@endif
+
 <h1 class="text-center">Cadastro de produto</h1>
-<form>
+<form action="/cadastrar-produto" method="post">
 	{{ csrf_field() }}
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group">
 				<label>Cód. de barras</label>
-				<input type="number" min="0" name="codigodebarras"  class="form-control border-input">
+				<input type="number" min="0" name="codigodebarras"  class="form-control border-input" required>
 			</div>
 		</div>
 	</div>
@@ -18,7 +26,7 @@
 		<div class="col-md-8">
 			<div class="form-group">
 				<label>Descrição</label>
-				<input type="input" name="codigodebarras" class="form-control border-input">
+				<input type="input" name="descricao" class="form-control border-input" required>
 			</div>
 		</div>
 		<div class="col-md-4">
@@ -30,6 +38,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
 	</div>
 </form>
 
