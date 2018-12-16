@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.index');
 });
+
+Route::post('/cadastrar-produto', 'ProdutoController@cadastrar');
+Route::get('/cadastrar-produto', 'ProdutoController@indexCadastro');

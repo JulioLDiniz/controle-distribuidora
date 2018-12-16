@@ -17,7 +17,8 @@ class CreateProdutosTable extends Migration
             $table->increments('id');
             $table->string('codigo_de_barras')->unique();
             $table->string('descricao');
-            $table->int('quantidade')->unsigned();
+            //adicionar preço
+            $table->integer('quantidade')->unsigned()->default(0);
             $table->timestamps();
         });
     }

@@ -92,6 +92,16 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+                <div>
+                    
+                    <form action="/cadastrar-produto"" method="post">
+                        {{csrf_field()}}
+                        <input type="input" name="codigoDeBarras">
+                        <input type="input" name="descricao">
+                        <button type="submit">Cadastrar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </body>
