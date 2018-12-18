@@ -15,5 +15,10 @@ Route::get('/', function () {
     return view('layout.index');
 });
 
+Route::get('/produtos', 'ProdutoController@index');
+
 Route::post('/cadastrar-produto', 'ProdutoController@cadastrar');
 Route::get('/cadastrar-produto', 'ProdutoController@indexCadastro');
+
+Route::post('/alterar-produto', 'ProdutoController@alterar');
+Route::get('/alterar-produto-{id}', 'ProdutoController@indexAlteracao' );

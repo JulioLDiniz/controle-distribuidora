@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produto extends Model
 {
+    protected $fillable = [
+        'codigo_de_barras', 'descricao'
+    ];
     public function verificaSeExiste($id){
     	if($this->find($id)){
     		return true;
@@ -18,14 +21,14 @@ class Produto extends Model
      	$this->save();
     }
     public function deleta($id){
-    	if(verificaSeExiste($id)){
+    	if($this->verificaSeExiste($id)){
     		$this->delete($id);
     	}else{
     		return false;
     	}
     }
     public function lista($id){
-    	if(verificaSeExiste($id)){
+    	if($this->verificaSeExiste($id)){
     		return $this->find($id);
     	}else{
     		return false;
@@ -39,10 +42,7 @@ class Produto extends Model
     	}
     }
     public function altera($id, $params){
-    	if(verificaSeExiste($id)){
-    		$produto->update($params);
-    	}else{
-    		return false;
-    	}
+        $produto = Produto::find($id);
+    	$produto->update($params);
     }
 }
