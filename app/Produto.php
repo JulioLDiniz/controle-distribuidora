@@ -21,10 +21,11 @@ class Produto extends Model
      	$this->save();
     }
     public function deleta($id){
-    	if($this->verificaSeExiste($id)){
-    		$this->delete($id);
+    	if(!$this->verificaSeExiste($id)){
+            return false;
     	}else{
-    		return false;
+    		$produto = $this->find($id);
+            $produto->delete();
     	}
     }
     public function lista($id){
@@ -44,5 +45,22 @@ class Produto extends Model
     public function altera($id, $params){
         $produto = Produto::find($id);
     	$produto->update($params);
+    }
+
+    public function adicionaQuantidade($id, $quantidade){
+
+        $produto = Produto::find($id);
+        $quantidadeOld = $produto->quantidade;
+        $produto->quantidade = ($quantidadeOld+$quantidade);
+
+        $produto->update();
+        // $this->verificaSeExiste($id);
+        // $this->find($id);
+        // $quantidadeOld = $this->quantidade;
+
+        // $this->quantidade = ($quantidadeOld+$quantidade);
+
+        // $this->update();
+
     }
 }

@@ -30,31 +30,35 @@
 						<td>{{ $produto->codigo_de_barras }}</td>
 						<td>{{ $produto->descricao }}</td>
 						<td> $ </td>
-						<td> Qtd </td>
+						<td> {{ $produto->quantidade }} </td>
 						<td>
 							<a href="/alterar-produto-{{ $produto->id }}"><span class="ti-pencil"></span></a>
-							<span class="ti-trash" data-toggle="modal" data-target="#exampleModal"></span>
+							<span class="ti-trash" data-toggle="modal" data-target="#modal-delete" data-id="{{ $produto->id }}" data-descricao="{{ $produto->descricao }}"></span>
 						</td>
 					</tr>
 					@endforeach
 				</tbody>
 			</table>
 			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+			<div class="modal fade modal-margin-top" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<h5 class="modal-title" id="title"></h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="modal-body">
-							...
+							Deseja realmente excluir?
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save changes</button>
+							<form action="/deletar-produto"  method="post">
+								{{ csrf_field() }}
+								<input type="hidden" id="id" name="id"/>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+								<button type="submit" class="btn btn-primary">Excluir</button>
+							</form>
 						</div>
 					</div>
 				</div>
