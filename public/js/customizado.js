@@ -30,3 +30,5 @@ $('#modal-delete').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text('Excluir ' + descricao+ ' ?')
   modal.find('#id').attr("value",id)
 })
+
+$('#collapse').collapse();

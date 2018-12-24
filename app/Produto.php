@@ -3,12 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Movimentacao;
 
 class Produto extends Model
 {
     protected $fillable = [
         'codigo_de_barras', 'descricao'
     ];
+
+    public function movimentacao(){
+        $this->hasMany('App\Movimentacao');
+    }
+
     public function verificaSeExiste($id){
     	if($this->find($id)){
     		return true;
@@ -48,12 +54,18 @@ class Produto extends Model
     }
 
     public function adicionaQuantidade($id, $quantidade){
-
+        
         $produto = Produto::find($id);
         $quantidadeOld = $produto->quantidade;
         $produto->quantidade = ($quantidadeOld+$quantidade);
 
+        $movimentacao = new Movimentacao();
+        $movimentacao->produto_id = $id;
+        $movimentacao->date = date('Y-m-d');
+        $movimentacao->quantidade = $quantidade;
+        $movimentacao->tipo = 'entrada';
         $produto->update();
+        $movimentacao->save();
         // $this->verificaSeExiste($id);
         // $this->find($id);
         // $quantidadeOld = $this->quantidade;

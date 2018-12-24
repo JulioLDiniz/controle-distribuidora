@@ -12,6 +12,7 @@
 @endif
 
 <h1 class="text-center">Produtos</h1>
+<a href="cadastrar-produto"><button class="btn btn-info pull-right">Cadastrar</button></a>
 
 <div class="col-md-12">
 	<div class="card card-plain">
@@ -31,9 +32,10 @@
 						<td>{{ $produto->descricao }}</td>
 						<td> $ </td>
 						<td> {{ $produto->quantidade }} </td>
-						<td>
-							<a href="/alterar-produto-{{ $produto->id }}"><span class="ti-pencil"></span></a>
+						<td >
+							<a href="/alterar-produto-{{ $produto->id }}" style="all: unset;"><span class="ti-pencil"></span></a>
 							<span class="ti-trash" data-toggle="modal" data-target="#modal-delete" data-id="{{ $produto->id }}" data-descricao="{{ $produto->descricao }}"></span>
+							<a href="/movimentacao-{{ $produto->id }}" style="all: unset;"><span class="ti-arrows-horizontal"></span></a>
 						</td>
 					</tr>
 					@endforeach

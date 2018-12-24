@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('layout.index');
 });
 
+Route::get('teste', function(){
+	// $mytime = Carbon\Carbon::now();
+	// return $mytime->toDateString();
+	$ldate = date('Y-m-d');
+	return date('Y-m-d');
+});
 Route::get('/produtos', 'ProdutoController@index');
 
 Route::post('/cadastrar-produto', 'ProdutoController@cadastrar');

@@ -57,10 +57,10 @@
 						</a>
 					</li>
 					<li>
-						<a href="cadastrar-produto">
+						<a href="produtos" class="nav nav-second-level" aria-expanded="false" style="height: 0px;" data-toggle="collapse" data-target="#collapseExample" id="collapse">
 							<i class="ti-shopping-cart"></i>
 							<p>Produto</p>
-						</a>
+						</a>		
 					</li>
 					<li>
 						<a href="dashboard.html">
@@ -68,10 +68,10 @@
 							<p>Caixa</p>
 						</a>
 					</li>
-
 				</ul>
 			</div>
 		</div>
+
 
 		<div class="main-panel">
 			<nav class="navbar navbar-default">
