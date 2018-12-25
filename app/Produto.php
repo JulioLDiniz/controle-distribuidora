@@ -8,7 +8,7 @@ use App\Movimentacao;
 class Produto extends Model
 {
     protected $fillable = [
-        'codigo_de_barras', 'descricao'
+        'codigo_de_barras', 'descricao', 'preco'
     ];
 
     public function movimentacao(){

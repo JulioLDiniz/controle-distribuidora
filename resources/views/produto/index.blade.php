@@ -21,7 +21,7 @@
 				<thead>
 					<th>Código de barras</th>
 					<th>Descrição</th>
-					<th>Valor</th>
+					<th>Preço</th>
 					<th>Quantidade</th>
 					<th>Opções</th>
 				</thead>
@@ -30,7 +30,7 @@
 					<tr>
 						<td>{{ $produto->codigo_de_barras }}</td>
 						<td>{{ $produto->descricao }}</td>
-						<td> $ </td>
+						<td> R$ {{ $produto->preco }} </td>
 						<td> {{ $produto->quantidade }} </td>
 						<td >
 							<a href="/alterar-produto-{{ $produto->id }}" style="all: unset;"><span class="ti-pencil"></span></a>

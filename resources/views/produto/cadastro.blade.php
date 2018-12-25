@@ -31,10 +31,10 @@
 		</div>
 		<div class="col-md-4">
 			<div class="form-group">
-				<label>Valor</label>
+				<label>Preço</label>
 				<div class="input-group">
 					<span class="input-group-addon border-span" id="basic-addon1">R$</span>
-					<input type="number" disabled name="valor" class="form-control border-input">
+					<input type="number" min="1" step="0.01" name="preco" class="form-control border-input" required>
 				</div>
 			</div>
 		</div>

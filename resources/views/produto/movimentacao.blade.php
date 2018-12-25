@@ -33,10 +33,10 @@
 		</div>
 		<div class="col-md-4">
 			<div class="form-group">
-				<label>Valor</label>
+				<label>Preço</label>
 				<div class="input-group">
 					<span class="input-group-addon border-span" id="basic-addon1">R$</span>
-					<input type="number" name="valor" class="form-control border-input" readonly>
+					<input type="number" name="preco" value="{{$produto->preco}}" class="form-control border-input" readonly>
 				</div>
 			</div>
 		</div>
@@ -45,22 +45,16 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>Quantidade</label>
-				<input type="number" min="0" name="quantidade"  class="form-control border-input"  required >
+				<input type="number" min="1" name="quantidade"  class="form-control border-input"  required >
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-6">
 			<div class="form-group">
 				<label>Tipo</label>
 				<select class="form-control border-input" name="tipo" required>
 					<option selected value="entrada">Entrada</option>
 					<option value="saida">Saída</option>
 				</select>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>Data</label>
-				<input type="text" name="data"  class="form-control border-input" readonly>
 			</div>
 		</div>
 	</div>
