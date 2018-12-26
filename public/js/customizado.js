@@ -32,3 +32,4 @@ $('#modal-delete').on('show.bs.modal', function (event) {
 })
 
 $('#collapse').collapse();
+

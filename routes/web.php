@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Produto;
 
 Route::get('/', function () {
     return view('layout.index');
@@ -32,3 +33,8 @@ Route::get('/alterar-produto-{id}', 'ProdutoController@indexAlteracao' );
 Route::post('/deletar-produto', 'ProdutoController@deletar');
 Route::get('/movimentacao-{id}', 'ProdutoController@indexMovimentacao');
 Route::post('/movimentacao-entrada', 'ProdutoController@movimentacaoEntrada');
+
+
+//Caixa
+Route::get('/caixa', 'CaixaController@index');
+Route::get('/getProduto-{codigodebarras}', 'ProdutoController@produtoCodigoDeBarras');

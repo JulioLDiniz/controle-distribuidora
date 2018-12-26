@@ -63,4 +63,8 @@ class ProdutoController extends Controller
         $produto->adicionaQuantidade($request->id, $request->quantidade);
         return redirect()->to('/produtos')->with(['message' => 'Alterado com sucesso', 'type-message'=>'success']);
     }
+    public function produtoCodigoDeBarras($codigodebarras){
+        $produto = new Produto();
+        return $produto->getProdutoCodigoDeBarras($codigodebarras)[0];
+    }
 }

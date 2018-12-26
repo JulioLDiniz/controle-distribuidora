@@ -75,4 +75,8 @@ class Produto extends Model
         // $this->update();
 
     }
+
+    public function getProdutoCodigoDeBarras($codigoDeBarras){
+        return Produto::where('codigo_de_barras',$codigoDeBarras)->get();
+    }
 }

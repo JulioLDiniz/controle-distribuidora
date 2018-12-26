@@ -57,13 +57,13 @@
 						</a>
 					</li>
 					<li>
-						<a href="produtos" class="nav nav-second-level" aria-expanded="false" style="height: 0px;" data-toggle="collapse" data-target="#collapseExample" id="collapse">
+						<a href="produtos" class="nav nav-second-level" >
 							<i class="ti-shopping-cart"></i>
 							<p>Produto</p>
 						</a>		
 					</li>
 					<li>
-						<a href="dashboard.html">
+						<a href="caixa">
 							<i class="ti-money"></i>
 							<p>Caixa</p>
 						</a>
