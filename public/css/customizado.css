@@ -5,3 +5,19 @@
 .modal-margin-top{
 	margin-top: 6%;
 }
+
+.remove{
+	padding: 0;
+	border: none;
+	background: none;
+}
+.add{
+	padding: 0;
+	border: none;
+	background: none;
+	margin-top: 30px;
+}
+
+.table-produtos{
+	margin-top: 20px;
+}

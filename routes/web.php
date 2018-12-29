@@ -38,3 +38,6 @@ Route::post('/movimentacao-entrada', 'ProdutoController@movimentacaoEntrada');
 //Caixa
 Route::get('/caixa', 'CaixaController@index');
 Route::get('/getProduto-{codigodebarras}', 'ProdutoController@produtoCodigoDeBarras');
+Route::post('/postProduto',function(){
+	dd(request()->descricao);
+});

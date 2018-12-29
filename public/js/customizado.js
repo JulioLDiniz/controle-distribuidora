@@ -31,5 +31,61 @@ $('#modal-delete').on('show.bs.modal', function (event) {
   modal.find('#id').attr("value",id)
 })
 
-$('#collapse').collapse();
 
+
+//Caixa
+
+$('#codigodebarras').keyup(function(){
+    var codigodebarras = $('#codigodebarras').val();
+
+    $.ajax({
+      url: 'getProduto-'+codigodebarras,
+      type: 'get',
+      dataType: "json",
+      success: function(data){
+        $('#descricao').val(data.descricao);
+        $('#preco').val(data.preco);
+        $('#quantidadeestoque').val(data.quantidade);
+      }
+
+    });
+
+  
+  });
+  
+  
+  var array = new Array();
+  $('#add').click(function(){
+    var produto = {};
+    if(!$('#descricao').val()){
+      alert('nenhum produto selecionado');
+      this.die();
+    }
+    // array.push($('#descricao').val());
+    // console.log(array);
+
+    produto.codigodebarras = $('#codigodebarras').val();
+    produto.quantidade = $('#quantidadecompra').val();
+
+    array.push(produto);
+    console.log(array);
+   
+    
+    $('#tableCarrinhoCompras').append('<tr><td>'+$('#descricao').val()+'</td>'+
+                                      '<td>'+$('#quantidadecompra').val()+'</td>'+
+                                      '<td><button type="button" class="ti-close remove"></button></td></tr>');
+    
+    $('#formulario').each (function(){
+      this.reset();
+    });
+    $('#codigodebarras').focus();
+
+    
+  });
+
+
+  $('table').on('click', '.remove', function (event) {
+    var tr = $(this).closest('tr');
+    alert(tr.html());
+    $(this).closest('tr').remove();
+  });
