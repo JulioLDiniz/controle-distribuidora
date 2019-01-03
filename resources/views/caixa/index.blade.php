@@ -49,15 +49,21 @@
 <form >
 	{{ csrf_field() }}
 	<table class="table table-produtos" id="tableCarrinhoCompras">
-		<tr>
-			<th>Produto</th>
-			<th>Quantidade</th> 
-			<th>Remover</th>
-		</tr>
+		<thead>
+			<tr>
+				<th>Produto</th>
+				<th>Quantidade</th> 
+				<th>Remover</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
 	</table>
 	
 	<!-- <button type="submit" id="finalizar">finalizar</button> -->
 </form>
+<button id="finalizar" class="btn">Finalizar</button>
 
 
 

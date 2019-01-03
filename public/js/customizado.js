@@ -1,22 +1,22 @@
 //type = ['','info','success','warning','danger'];
 
 demo = {
-    showNotification: function(type, message){
-        
+  showNotification: function(type, message){
 
-        $.notify({
-            icon: "ti-gift",
-            message: message
 
-        },{
-            type: type,
-            timer: 4000,
-            placement: {
-                from: 'top',
-                align: 'right'
-            }
-        });
-    }
+    $.notify({
+      icon: "ti-gift",
+      message: message
+
+    },{
+      type: type,
+      timer: 4000,
+      placement: {
+        from: 'top',
+        align: 'right'
+      }
+    });
+  }
 }
 
 
@@ -36,44 +36,45 @@ $('#modal-delete').on('show.bs.modal', function (event) {
 //Caixa
 
 $('#codigodebarras').keyup(function(){
-    var codigodebarras = $('#codigodebarras').val();
+  var codigodebarras = $('#codigodebarras').val();
 
-    $.ajax({
-      url: 'getProduto-'+codigodebarras,
-      type: 'get',
-      dataType: "json",
-      success: function(data){
-        $('#descricao').val(data.descricao);
-        $('#preco').val(data.preco);
-        $('#quantidadeestoque').val(data.quantidade);
-      }
-
-    });
-
-  
-  });
-  
-  
-  var array = new Array();
-  $('#add').click(function(){
-    var produto = {};
-    if(!$('#descricao').val()){
-      alert('nenhum produto selecionado');
-      this.die();
+  $.ajax({
+    url: 'getProduto-'+codigodebarras,
+    type: 'get',
+    dataType: "json",
+    success: function(data){
+      $('#descricao').val(data.descricao);
+      $('#preco').val(data.preco);
+      $('#quantidadeestoque').val(data.quantidade);
     }
+
+  });
+
+  
+});
+
+
+var array = new Array();
+$('#add').click(function(){
+  var produto = {};
+  if(!$('#descricao').val()){
+    alert('nenhum produto selecionado');
+    this.die();
+  }
     // array.push($('#descricao').val());
     // console.log(array);
 
-    produto.codigodebarras = $('#codigodebarras').val();
-    produto.quantidade = $('#quantidadecompra').val();
+    // produto.codigodebarras = $('#codigodebarras').val();
+    // produto.quantidade = $('#quantidadecompra').val();
 
-    array.push(produto);
-    console.log(array);
-   
+    // array.push(produto);
+    // console.log(array);
+
     
-    $('#tableCarrinhoCompras').append('<tr><td>'+$('#descricao').val()+'</td>'+
-                                      '<td>'+$('#quantidadecompra').val()+'</td>'+
-                                      '<td><button type="button" class="ti-close remove"></button></td></tr>');
+    $('#tableCarrinhoCompras > tbody').append('<tr>'+'<input type="hidden" value="'+$('#codigodebarras').val()+'">'+
+      '<td>'+$('#descricao').val()+'</td>'+
+      '<td>'+$('#quantidadecompra').val()+'</td>'+
+      '<td><button type="button" class="ti-close remove"></button></td></tr>');
     
     $('#formulario').each (function(){
       this.reset();
@@ -84,8 +85,29 @@ $('#codigodebarras').keyup(function(){
   });
 
 
-  $('table').on('click', '.remove', function (event) {
-    var tr = $(this).closest('tr');
-    alert(tr.html());
+$('table').on('click', '.remove', function (event) {
+    // var tr = $(this).closest('tr');
+    // alert(tr.html());
     $(this).closest('tr').remove();
+  });
+
+$('#finalizar').on('click',function(){
+
+  var table = $('#tableCarrinhoCompras > tbody');
+  var array = new Array();
+  if(table.find('input').length === 0){
+    alert('Lista vazia.');
+  }else{
+
+    table.find('tr').each(function(indice){
+      //alert(indice)
+      array.push(table.find('tr:nth-child('+(indice +1)+') input').val());
+    });
+
+    console.log(array);
+  }
+  
+
+    // var tbody = $('#tableCarrinhoCompras > tr:nth-child($i) input').val();
+    // alert(tbody);
   });
