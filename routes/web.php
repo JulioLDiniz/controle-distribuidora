@@ -41,3 +41,4 @@ Route::get('/getProduto-{codigodebarras}', 'ProdutoController@produtoCodigoDeBar
 Route::post('/postProduto',function(){
 	dd(request()->descricao);
 });
+Route::post('/movimentacao-saida','ProdutoController@movimentacaoSaida');

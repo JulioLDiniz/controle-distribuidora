@@ -65,8 +65,6 @@
 </form>
 <button id="finalizar" class="btn">Finalizar</button>
 
-
-
-
+<button type="btn" class="btn" id="btn"> post</button>
 
 @endsection

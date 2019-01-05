@@ -99,15 +99,64 @@ $('#finalizar').on('click',function(){
     alert('Lista vazia.');
   }else{
 
-    table.find('tr').each(function(indice){
-      //alert(indice)
-      array.push(table.find('tr:nth-child('+(indice +1)+') input').val());
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
     });
 
+    table.find('tr').each(function(indice){
+      //alert(indice)
+      var codigodebarras = table.find('tr:nth-child('+(indice +1)+') input').val();
+      var quantidade = table.find('tr:nth-child('+(indice +1)+') td:nth-child(3)').html();
+      var produto = {};
+      produto.codigodebarras = codigodebarras;
+      produto.quantidade = quantidade;
+      array.push(produto);
+    });
+
+    $.each(array, function (index, value) {
+      $.ajax({
+        type: "POST",
+        url: '/movimentacao-saida',
+        data: array[index],
+        success: function(response){
+          console.log('success');
+        }
+
+      });
+    });
+    $("#tableCarrinhoCompras > tbody > tr").detach();
+    
     console.log(array);
+    
+    
   }
   
 
     // var tbody = $('#tableCarrinhoCompras > tr:nth-child($i) input').val();
     // alert(tbody);
   });
+
+
+
+$('#btn').click(function () {
+
+
+
+
+  var array = {
+    'codigodebarras': 9000,
+    'quantidade': 1
+  }
+  console.log(array);
+  $.ajax({
+    type: "POST",
+    url: '/movimentacao-saida',
+    data: array,
+    success: function(response){
+      console.log('success');
+    }
+
+  });
+});

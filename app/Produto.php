@@ -8,7 +8,7 @@ use App\Movimentacao;
 class Produto extends Model
 {
     protected $fillable = [
-        'codigo_de_barras', 'descricao', 'preco'
+        'codigo_de_barras', 'descricao', 'preco','quantidade'
     ];
 
     public function movimentacao(){
@@ -78,5 +78,19 @@ class Produto extends Model
 
     public function getProdutoCodigoDeBarras($codigoDeBarras){
         return Produto::where('codigo_de_barras',$codigoDeBarras)->get();
+    }
+
+    public function baixaQuantidade($codigoDeBarras, $quantidade){
+        $produto = Produto::where('codigo_de_barras',$codigoDeBarras)->first();
+        $quantidadeOld = $produto->quantidade;
+        $produto->quantidade = ($quantidadeOld-$quantidade);
+
+        $movimentacao = new Movimentacao();
+        $movimentacao->produto_id = $produto->id;
+        $movimentacao->date = date('Y-m-d');
+        $movimentacao->quantidade = $quantidade;
+        $movimentacao->tipo = 'saida';
+        $produto->update();
+        $movimentacao->save();
     }
 }
