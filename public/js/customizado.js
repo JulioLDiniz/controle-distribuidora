@@ -113,18 +113,19 @@ $('#finalizar').on('click', function () {
             produto.quantidade = quantidade;
             array.push(produto);
         });
+        
+        var cliente = $('#pagamento').val();
+        console.log(array);
 
-        $.each(array, function (index, value) {
             $.ajax({
                 type: "POST",
                 url: '/movimentacao-saida',
-                data: array[index],
+                data: {produtos:array, idUsuario: cliente},
                 success: function (response) {
-                    console.log('success');
+                    console.log(response);
                 }
 
             });
-        });
         $("#tableCarrinhoCompras > tbody > tr").detach();
 
     }

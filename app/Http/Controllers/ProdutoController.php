@@ -70,7 +70,8 @@ class ProdutoController extends Controller
 
     public function movimentacaoSaida(Request $request){
         $produto = new Produto();
-        $produto->baixaQuantidade($request->codigodebarras, $request->quantidade);
+        return $request;
+//        $produto->baixaQuantidade($request->codigodebarras, $request->quantidade);
         //return redirect()->to('/produtos')->with(['message' => 'Baixa dada com sucesso', 'type-message'=>'success']);
         return response()->json(['message'=>'dado baixa']);
     }

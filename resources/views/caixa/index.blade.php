@@ -8,7 +8,7 @@
             <div class="col-md-4 pull-right">
                 <div class="form-data ">
                     <label>Pagamento/Cliente</label>
-                    <select name="pagamento" id="" class="form-control border-input ">
+                    <select name="pagamento" id="pagamento" class="form-control border-input ">
                         @foreach($clientes as $cliente)
                             <option value="{{ $cliente->id }}" >{{ $cliente->nome }}</option>
                         @endforeach
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <button type="submit" id="add" class="add ti-plus"></button>
+                <button type="button" id="add" class="add ti-plus"></button>
             </div>
         </div>
 
