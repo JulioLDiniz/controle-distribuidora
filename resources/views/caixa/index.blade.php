@@ -3,6 +3,7 @@
 
     <h1 class="text-center">Caixa</h1>
 
+    <div id="divCorpo"></div>
     <form id="formulario" action="#">
         <div class="row ">
             <div class="col-md-4 pull-right">
@@ -68,12 +69,18 @@
             <tr>
                 <th>Produto</th>
                 <th>Quantidade</th>
+                <th>Total produto</th>
                 <th>Remover</th>
             </tr>
             </thead>
             <tbody>
 
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" id="valor_total">Total compra: 0</td>
+                </tr>
+            </tfoot>
         </table>
 
         <!-- <button type="submit" id="finalizar">finalizar</button> -->

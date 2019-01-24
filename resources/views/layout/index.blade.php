@@ -29,6 +29,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 	<link href="css/paper/themify-icons.css" rel="stylesheet">
 	<script src="js/paper/jquery.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" type="text/javascript"></script>
 
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>

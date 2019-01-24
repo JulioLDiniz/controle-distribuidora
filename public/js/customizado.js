@@ -51,7 +51,17 @@ $('#codigodebarras').keyup(function () {
 
 
 });
-
+var $precoTotalCompra = 0;
+function atualizaPrecoTotal($totalProduto, $operacao) {
+    if($operacao === '+'){
+        $precoTotalCompra += $totalProduto;
+        $('#valor_total').html('Total compra: ' + $precoTotalCompra);
+    }
+    if($operacao === '-'){
+        $precoTotalCompra = $precoTotalCompra - $totalProduto;
+        $('#valor_total').html('Total compra: ' + $precoTotalCompra);
+    }
+}
 
 var array = new Array();
 $('#add').click(function () {
@@ -60,6 +70,7 @@ $('#add').click(function () {
         alert('nenhum produto selecionado');
         this.die();
     }
+
     // array.push($('#descricao').val());
     // console.log(array);
 
@@ -68,13 +79,17 @@ $('#add').click(function () {
 
     // array.push(produto);
     // console.log(array);
+    $totalProduto = ($('#preco').val() * $('#quantidadecompra').val());
+
+
 
 
     $('#tableCarrinhoCompras > tbody').append('<tr>' + '<input type="hidden" value="' + $('#codigodebarras').val() + '">' +
         '<td>' + $('#descricao').val() + '</td>' +
         '<td>' + $('#quantidadecompra').val() + '</td>' +
+        '<td class="preco">R$ ' + $totalProduto + '</td>' +
         '<td><button type="button" class="ti-close remove"></button></td></tr>');
-
+    atualizaPrecoTotal($totalProduto,'+');
     $('#formulario').each(function () {
         this.reset();
     });
@@ -85,9 +100,10 @@ $('#add').click(function () {
 
 
 $('table').on('click', '.remove', function (event) {
-    // var tr = $(this).closest('tr');
-    // alert(tr.html());
-    $(this).closest('tr').remove();
+    $elemento = $(this).closest("tr");
+    $totalProduto = parseFloat($elemento.find("td:eq(2)").html().replace(/[^0-9.,]/g, ''));
+    atualizaPrecoTotal($totalProduto,'-');
+    $elemento.remove();
 });
 
 $('#finalizar').on('click', function () {
@@ -113,19 +129,19 @@ $('#finalizar').on('click', function () {
             produto.quantidade = quantidade;
             array.push(produto);
         });
-        
+
         var cliente = $('#pagamento').val();
         console.log(array);
 
-            $.ajax({
-                type: "POST",
-                url: '/movimentacao-saida',
-                data: {produtos:array, idUsuario: cliente},
-                success: function (response) {
-                    console.log(response);
-                }
+        $.ajax({
+            type: "POST",
+            url: '/movimentacao-saida',
+            data: {produtos: array, idUsuario: cliente, totalCompra: $precoTotalCompra},
+            success: function (response) {
+                console.log(response);
+            }
 
-            });
+        });
         $("#tableCarrinhoCompras > tbody > tr").detach();
 
     }
