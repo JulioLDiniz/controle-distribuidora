@@ -38,4 +38,5 @@ Route::post('/movimentacao-entrada', 'ProdutoController@movimentacaoEntrada');
 //Caixa
 Route::get('/caixa', 'CaixaController@index');
 Route::get('/getProduto-{codigodebarras}', 'ProdutoController@produtoCodigoDeBarras');
-Route::post('/movimentacao-saida','ProdutoController@movimentacaoSaida');
+//Route::post('/movimentacao-saida','ProdutoController@movimentacaoSaida');
+Route::post('/venda','CaixaController@venda');

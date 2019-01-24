@@ -10,4 +10,8 @@ class CaixaController extends Controller
         $clientes = \App\Cliente::all();
     	return view('caixa.index', compact('clientes',$clientes));
     }
+
+    public function venda(Request $request){
+        
+    }
 }

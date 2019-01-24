@@ -15,6 +15,9 @@ class CreateCaixasTable extends Migration
     {
         Schema::create('caixas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('cliente_id')->unsigned();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
+            $table->decimal('valor',10,2);
             $table->timestamps();
         });
     }
@@ -26,6 +29,7 @@ class CreateCaixasTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('caixas');
     }
 }
