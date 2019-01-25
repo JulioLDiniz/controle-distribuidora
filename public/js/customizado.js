@@ -52,23 +52,37 @@ $('#codigodebarras').keyup(function () {
 
 });
 var precoTotalCompra = 0;
+
 function atualizaPrecoTotal($totalProduto, $operacao) {
-    if($operacao === '+'){
+    if ($operacao === '+') {
         precoTotalCompra += $totalProduto;
         $('#valor_total').html('Total compra: ' + precoTotalCompra);
     }
-    if($operacao === '-'){
-        precoTotalCompra = $precoTotalCompra - $totalProduto;
+    if ($operacao === '-') {
+        precoTotalCompra -= $totalProduto;
         $('#valor_total').html('Total compra: ' + precoTotalCompra);
     }
+}
+
+function zeraPrecoTotalCompra() {
+    precoTotalCompra = 0;
+    $('#valor_total').html('Total compra: ' + precoTotalCompra);
 }
 
 var array = new Array();
 $('#add').click(function () {
     var produto = {};
     if (!$('#descricao').val()) {
-        alert('nenhum produto selecionado');
-        this.die();
+        $(document).ready(function () {
+            demo.showNotification("danger", "Nenhum produto selecionado");
+        });
+        return
+    }
+    if (parseInt($('#quantidadeestoque').val()) === 0) {
+        $(document).ready(function () {
+            demo.showNotification("danger", "Não há produto em estoque");
+        });
+        return
     }
 
     // array.push($('#descricao').val());
@@ -82,14 +96,12 @@ $('#add').click(function () {
     $totalProduto = ($('#preco').val() * $('#quantidadecompra').val());
 
 
-
-
     $('#tableCarrinhoCompras > tbody').append('<tr>' + '<input type="hidden" value="' + $('#codigodebarras').val() + '">' +
         '<td>' + $('#descricao').val() + '</td>' +
         '<td>' + $('#quantidadecompra').val() + '</td>' +
         '<td class="preco">R$ ' + $totalProduto + '</td>' +
         '<td><button type="button" class="ti-close remove"></button></td></tr>');
-    atualizaPrecoTotal($totalProduto,'+');
+    atualizaPrecoTotal($totalProduto, '+');
     $('#formulario').each(function () {
         this.reset();
     });
@@ -102,7 +114,7 @@ $('#add').click(function () {
 $('table').on('click', '.remove', function (event) {
     $elemento = $(this).closest("tr");
     $totalProduto = parseFloat($elemento.find("td:eq(2)").html().replace(/[^0-9.,]/g, ''));
-    atualizaPrecoTotal($totalProduto,'-');
+    atualizaPrecoTotal($totalProduto, '-');
     $elemento.remove();
 });
 
@@ -111,7 +123,9 @@ $('#finalizar').on('click', function () {
     var table = $('#tableCarrinhoCompras > tbody');
     var array = new Array();
     if (table.find('input').length === 0) {
-        alert('Lista vazia.');
+        $(document).ready(function () {
+            demo.showNotification("danger", "Lista de compras vazia");
+        });
     } else {
 
         $.ajaxSetup({
@@ -131,18 +145,26 @@ $('#finalizar').on('click', function () {
         });
 
         var cliente = $('#pagamento').val();
-        console.log(array, cliente, precoTotalCompra);
 
         $.ajax({
             type: "POST",
             url: '/venda',
             data: {produtos: array, idCliente: cliente, totalCompra: precoTotalCompra},
             success: function (response) {
-                console.log(response);
+                if (response.success) {
+                    $(document).ready(function () {
+                        demo.showNotification("success", response.success);
+                    });
+                } else {
+                    $(document).ready(function () {
+                        demo.showNotification("danger", response.error);
+                    });
+                }
             }
 
         });
         $("#tableCarrinhoCompras > tbody > tr").detach();
+        zeraPrecoTotalCompra();
 
     }
 

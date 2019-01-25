@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 			<div class="form-group">
 				<label>Cód. de barras</label>
-				<input type="number" min="0" name="codigodebarras"  class="form-control border-input" required>
+				<input  autofocus type="number" min="0" name="codigodebarras"  class="form-control border-input" required>
 			</div>
 		</div>
 	</div>

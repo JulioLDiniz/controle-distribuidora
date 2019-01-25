@@ -28,14 +28,14 @@
             <div class="col-md-3">
                 <div class="form-data">
                     <label>Preço</label>
-                    <input type="number" name="preco" id="preco" class="form-control border-input">
+                    <input type="number" name="preco" id="preco" class="form-control border-input"  >
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-data">
                     <label>Qtd compra</label>
                     <input type="number" min="1" name="quantidadecompra" id="quantidadecompra"
-                           class="form-control border-input">
+                           class="form-control border-input" required>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <button type="button" id="add" class="add ti-plus"></button>
+                <button type="submit" id="add" class="add ti-plus"></button>
             </div>
         </div>
 
@@ -83,7 +83,6 @@
             </tfoot>
         </table>
 
-        <!-- <button type="submit" id="finalizar">finalizar</button> -->
     </form>
     <button id="finalizar" class="btn pull-right">Finalizar</button>
 
