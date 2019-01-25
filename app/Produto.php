@@ -54,7 +54,7 @@ class Produto extends Model
     }
 
     public function adicionaQuantidade($id, $quantidade){
-        
+
         $produto = Produto::find($id);
         $quantidadeOld = $produto->quantidade;
         $produto->quantidade = ($quantidadeOld+$quantidade);
@@ -80,7 +80,7 @@ class Produto extends Model
         return Produto::where('codigo_de_barras',$codigoDeBarras)->get();
     }
 
-    public function baixaQuantidade($codigoDeBarras, $quantidade){
+    public function baixaQuantidade($codigoDeBarras, $quantidade, $caixaId){
         $produto = Produto::where('codigo_de_barras',$codigoDeBarras)->first();
         $quantidadeOld = $produto->quantidade;
         $produto->quantidade = ($quantidadeOld-$quantidade);
@@ -90,6 +90,7 @@ class Produto extends Model
         $movimentacao->date = date('Y-m-d');
         $movimentacao->quantidade = $quantidade;
         $movimentacao->tipo = 'saida';
+        $movimentacao->caixa_id = $caixaId;
         $produto->update();
         $movimentacao->save();
     }

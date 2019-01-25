@@ -51,15 +51,15 @@ $('#codigodebarras').keyup(function () {
 
 
 });
-var $precoTotalCompra = 0;
+var precoTotalCompra = 0;
 function atualizaPrecoTotal($totalProduto, $operacao) {
     if($operacao === '+'){
-        $precoTotalCompra += $totalProduto;
-        $('#valor_total').html('Total compra: ' + $precoTotalCompra);
+        precoTotalCompra += $totalProduto;
+        $('#valor_total').html('Total compra: ' + precoTotalCompra);
     }
     if($operacao === '-'){
-        $precoTotalCompra = $precoTotalCompra - $totalProduto;
-        $('#valor_total').html('Total compra: ' + $precoTotalCompra);
+        precoTotalCompra = $precoTotalCompra - $totalProduto;
+        $('#valor_total').html('Total compra: ' + precoTotalCompra);
     }
 }
 
@@ -131,12 +131,12 @@ $('#finalizar').on('click', function () {
         });
 
         var cliente = $('#pagamento').val();
-        console.log(array);
+        console.log(array, cliente, precoTotalCompra);
 
         $.ajax({
             type: "POST",
-            url: '/movimentacao-saida',
-            data: {produtos: array, idUsuario: cliente, totalCompra: $precoTotalCompra},
+            url: '/venda',
+            data: {produtos: array, idCliente: cliente, totalCompra: precoTotalCompra},
             success: function (response) {
                 console.log(response);
             }

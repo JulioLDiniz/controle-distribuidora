@@ -29,7 +29,9 @@ class CreateCaixasTable extends Migration
      */
     public function down()
     {
-
-        Schema::dropIfExists('caixas');
+        Schema::table('caixas', function(Blueprint $table) {
+            $table->dropForeign('caixas_cliente_id_foreign');
+            $table->dropColumn('cliente_id');
+        });
     }
 }
