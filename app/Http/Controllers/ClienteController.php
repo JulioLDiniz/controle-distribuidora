@@ -39,17 +39,24 @@ class ClienteController extends Controller
         }
     }
 
-    public function indexAlteracao($id){
-        if(!Cliente::find($id)){
-            return redirect()->back()->with(['message' => 'Cliente não encontrado', 'type-message'=>'danger']);
+    public function indexAlteracao($id)
+    {
+        if (!Cliente::find($id)) {
+            return redirect()->back()->with(['message' => 'Cliente não encontrado', 'type-message' => 'danger']);
         }
         $cliente = Cliente::find($id);
         return view('cliente.alteracao', compact('cliente'));
     }
 
-    public function alterar(Request $request){
+    public function alterar(Request $request)
+    {
         $cliente = new Cliente();
         $cliente->altera($request->id, $request->all());
-        return redirect()->to('/clientes')->with(['message' => 'Alterado com sucesso', 'type-message'=>'success']);
+        return redirect()->to('/clientes')->with(['message' => 'Alterado com sucesso', 'type-message' => 'success']);
+    }
+
+    public function indexHistorico($id)
+    {
+        return view('cliente.historico');
     }
 }

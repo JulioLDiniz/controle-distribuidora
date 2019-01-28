@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{ $cliente->nome }}</td>
                             <td>{{ $cliente->telefone }}</td>
-                            <td> {{ $cliente->saldo_devedor}} </td>
+                            <td> R$ {{ $cliente->saldo_devedor}} </td>
                             <td>
                                 <a href="/alterar-cliente-{{ $cliente->id }}" style="all: unset;"><span
                                         class="ti-pencil"></span></a>

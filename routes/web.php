@@ -48,3 +48,4 @@ Route::post('/cadastrar-cliente', 'ClienteController@cadastrar');
 Route::post('/deletar-cliente', 'ClienteController@deletar');
 Route::get('/alterar-cliente-{id}', 'ClienteController@indexAlteracao' );
 Route::post('/alterar-cliente', 'ClienteController@alterar');
+Route::get('/historico-cliente-{id}', 'ClienteController@indexHistorico' );
