@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Caixa;
 use App\Cliente;
 use Illuminate\Http\Request;
 
@@ -57,6 +58,7 @@ class ClienteController extends Controller
 
     public function indexHistorico($id)
     {
-        return view('cliente.historico');
+        $vendas = Caixa::where('cliente_id',$id)->orderBy('created_at','desc')->get();
+        return view('cliente.historico', compact('vendas'));
     }
 }
