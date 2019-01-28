@@ -28,14 +28,14 @@
             <div class="col-md-3">
                 <div class="form-data">
                     <label>Preço</label>
-                    <input type="number" name="preco" id="preco" class="form-control border-input"  >
+                    <input type="number" min="0.01" step="0.01" name="preco" id="preco" class="form-control border-input"  >
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-data">
                     <label>Qtd compra</label>
                     <input type="number" min="1" name="quantidadecompra" id="quantidadecompra"
-                           class="form-control border-input" required>
+                           class="form-control border-input" >
                 </div>
             </div>
 

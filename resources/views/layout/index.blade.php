@@ -54,7 +54,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="dashboard.html">
+						<a href="clientes">
 							<i class="ti-user"></i>
 							<p>Cliente</p>
 						</a>

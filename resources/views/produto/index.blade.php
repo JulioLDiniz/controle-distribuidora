@@ -34,7 +34,7 @@
 						<td> {{ $produto->quantidade }} </td>
 						<td >
 							<a href="/alterar-produto-{{ $produto->id }}" style="all: unset;"><span class="ti-pencil"></span></a>
-							<span class="ti-trash" data-toggle="modal" data-target="#modal-delete" data-id="{{ $produto->id }}" data-descricao="{{ $produto->descricao }}"></span>
+							<span class="ti-trash" data-toggle="modal" data-target="#modal-delete-produto" data-id="{{ $produto->id }}" data-descricao="{{ $produto->descricao }}"></span>
 							<a href="/movimentacao-{{ $produto->id }}" style="all: unset;"><span class="ti-arrows-horizontal"></span></a>
 						</td>
 					</tr>
@@ -42,7 +42,7 @@
 				</tbody>
 			</table>
 			<!-- Modal -->
-			<div class="modal fade modal-margin-top" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+			<div class="modal fade modal-margin-top" id="modal-delete-produto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">

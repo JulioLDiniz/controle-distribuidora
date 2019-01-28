@@ -17,7 +17,7 @@ class CreateProdutosTable extends Migration
             $table->increments('id');
             $table->string('codigo_de_barras')->unique();
             $table->string('descricao');
-            $table->decimal('preco',6,2);
+            $table->decimal('preco',8,2);
             $table->integer('quantidade')->unsigned()->default(0);
             $table->timestamps();
         });

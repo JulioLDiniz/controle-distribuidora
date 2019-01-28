@@ -34,7 +34,7 @@
 				<label>Preço</label>
 				<div class="input-group">
 					<span class="input-group-addon border-span" id="basic-addon1">R$</span>
-					<input type="number" min="1" step="0.01" name="preco" class="form-control border-input" required>
+					<input type="number" min="0.01" step="0.01" name="preco" class="form-control border-input" required>
 				</div>
 			</div>
 		</div>

@@ -17,7 +17,7 @@ class CreateCaixasTable extends Migration
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
             $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
-            $table->decimal('valor',10,2);
+            $table->decimal('valor', 10, 2);
             $table->timestamps();
         });
     }
@@ -29,9 +29,13 @@ class CreateCaixasTable extends Migration
      */
     public function down()
     {
-        Schema::table('caixas', function(Blueprint $table) {
-            $table->dropForeign('caixas_cliente_id_foreign');
-            $table->dropColumn('cliente_id');
-        });
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('caixas');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
+//        Schema::table('caixas', function(Blueprint $table) {
+//            $table->dropForeign('caixas_cliente_id_foreign');
+//            $table->dropColumn('cliente_id');
+//        });
     }
 }

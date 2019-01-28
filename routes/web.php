@@ -40,3 +40,11 @@ Route::get('/caixa', 'CaixaController@index');
 Route::get('/getProduto-{codigodebarras}', 'ProdutoController@produtoCodigoDeBarras');
 //Route::post('/movimentacao-saida','ProdutoController@movimentacaoSaida');
 Route::post('/venda','CaixaController@venda');
+
+//Cliente
+Route::get('/clientes','ClienteController@index');
+Route::get('/cadastrar-cliente','ClienteController@indexCadastro');
+Route::post('/cadastrar-cliente', 'ClienteController@cadastrar');
+Route::post('/deletar-cliente', 'ClienteController@deletar');
+Route::get('/alterar-cliente-{id}', 'ClienteController@indexAlteracao' );
+Route::post('/alterar-cliente', 'ClienteController@alterar');
