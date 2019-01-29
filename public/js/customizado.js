@@ -55,6 +55,9 @@ $('#modal-baixa-saldo').on('show.bs.modal', function (event) {
 
 });
 
+$('#formulario').submit(function ( event ) {
+    event.preventDefault();
+});
 
 //Caixa
 

@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <button type="button" id="add" class="add ti-plus"></button>
+                <button type="submit" id="add" class="add ti-plus"></button>
             </div>
         </div>
 
