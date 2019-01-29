@@ -99,6 +99,14 @@ function zeraPrecoTotalCompra() {
 var array = new Array();
 $('#add').click(function () {
     var produto = {};
+
+    if($("#quantidadecompra").val()== null || $("#quantidadecompra").val() ==""){
+        $(document).ready(function () {
+            demo.showNotification("danger", "Insira a quantidade de produtos");
+        });
+        return ;
+    }
+
     if (!$('#descricao').val()) {
         $(document).ready(function () {
             demo.showNotification("danger", "Nenhum produto selecionado");

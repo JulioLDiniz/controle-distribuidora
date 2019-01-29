@@ -4,19 +4,20 @@
     <h1 class="text-center">Caixa</h1>
 
     <div id="divCorpo"></div>
-    <form id="formulario" action="#">
-        <div class="row ">
-            <div class="col-md-4 pull-right">
-                <div class="form-data ">
-                    <label>Pagamento/Cliente</label>
-                    <select name="pagamento" id="pagamento" class="form-control border-input ">
-                        @foreach($clientes as $cliente)
-                            <option value="{{ $cliente->id }}" >{{ $cliente->nome }}</option>
-                        @endforeach
-                    </select>
-                </div>
+    <div class="row ">
+        <div class="col-md-4 pull-right">
+            <div class="form-data ">
+                <label>Pagamento/Cliente</label>
+                <select name="pagamento" id="pagamento" class="form-control border-input ">
+                    @foreach($clientes as $cliente)
+                        <option value="{{ $cliente->id }}" >{{ $cliente->nome }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
+    </div>
+    <form id="formulario" action="#">
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-data">
