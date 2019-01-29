@@ -58,7 +58,17 @@ class ClienteController extends Controller
 
     public function indexHistorico($id)
     {
-        $vendas = Caixa::where('cliente_id',$id)->orderBy('created_at','desc')->get();
-        return view('cliente.historico', compact('vendas'));
+        $vendas = Caixa::where('cliente_id', $id)->orderBy('created_at', 'desc')->get();
+        $cliente = Cliente::find($id);
+        $array = Array($vendas, $cliente);
+
+        return view('cliente.historico', compact('array'));
+    }
+
+    public function darBaixaSaldo(Request $request)
+    {
+        $cliente = new Cliente();
+        $cliente->darBaixaSaldo($request->id,$request->valorSaldoDevedor);
+        return redirect()->to('/clientes')->with(['message' => 'Dado baixa em pagamento com sucesso', 'type-message' => 'success']);
     }
 }

@@ -17,10 +17,8 @@ Route::get('/', function () {
 });
 
 Route::get('teste', function(){
-	// $mytime = Carbon\Carbon::now();
-	// return $mytime->toDateString();
-	$ldate = date('Y-m-d');
-	return date('Y-m-d');
+//	echo date('d/m/Y \à\s H:i:s');
+    echo date("Y-m-d H:i:s", time());
 });
 Route::get('/produtos', 'ProdutoController@index');
 
@@ -49,3 +47,4 @@ Route::post('/deletar-cliente', 'ClienteController@deletar');
 Route::get('/alterar-cliente-{id}', 'ClienteController@indexAlteracao' );
 Route::post('/alterar-cliente', 'ClienteController@alterar');
 Route::get('/historico-cliente-{id}', 'ClienteController@indexHistorico' );
+Route::post('/dar-baixa-saldo', 'ClienteController@darBaixaSaldo' );

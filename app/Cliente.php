@@ -56,4 +56,11 @@ class Cliente extends Model
         $cliente->saldo_devedor += $valor;
         $cliente->save();
     }
+
+    public function darBaixaSaldo($id, $valor)
+    {
+        $cliente = Cliente::find($id);
+        $cliente->saldo_devedor -= $valor;
+        $cliente->save();
+    }
 }
