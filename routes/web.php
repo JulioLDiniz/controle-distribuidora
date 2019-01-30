@@ -50,6 +50,8 @@ Route::get('/historico-cliente-{id}', 'ClienteController@indexHistorico' );
 Route::post('/dar-baixa-saldo', 'ClienteController@darBaixaSaldo' );
 
 
+Route::get('dashboard', 'DashboardController@index');
+
 Route::get('/vendas', function () {
     $vendas = new \App\Dashboard();
     return $vendas->vendasDoDia('2019-01-25 17:16:03');

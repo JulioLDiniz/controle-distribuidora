@@ -14,7 +14,7 @@ class AlterClientesTableAddSaldodevedorColumn extends Migration
     public function up()
     {
         Schema::table('clientes', function (Blueprint $table) {
-            $table->decimal('saldo_devedor',8,2)->after('telefone')->unsigned()->nullable();
+            $table->decimal('saldo_devedor',8,2)->default(0)->after('telefone')->unsigned()->nullable();
         });
     }
 

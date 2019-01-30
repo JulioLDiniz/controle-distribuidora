@@ -51,10 +51,7 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>Tipo</label>
-				<select class="form-control border-input" name="tipo" required>
-					<option selected value="entrada">Entrada</option>
-					<option value="saida">Saída</option>
-				</select>
+                <input type="text" name="tipo"  class="form-control border-input" value="entrada" readonly  required >
 			</div>
 		</div>
 	</div>

@@ -48,7 +48,7 @@
 
 				<ul class="nav">
 					<li class="active">
-						<a href="dashboard.html">
+						<a href="dashboard">
 							<i class="ti-pie-chart"></i>
 							<p>Dashboard</p>
 						</a>

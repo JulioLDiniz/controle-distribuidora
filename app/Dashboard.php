@@ -14,7 +14,7 @@ class Dashboard extends Model
         return $produtos;
     }
 
-    public function vendasDoDia( $date){
+    public function vendasDoDia($date){
         $vendas = Caixa::where('created_at',$date)->sum('valor')->get();
         return $vendas;
     }
