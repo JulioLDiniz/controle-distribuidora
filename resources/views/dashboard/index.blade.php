@@ -15,14 +15,15 @@
                         <div class="col-xs-7">
                             <div class="numbers">
                                 <p>Faturado</p>
-                                $1,345
+                                <span>{{ $vendas }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="footer">
-                        <hr />
+                        <hr/>
                         <div class="stats">
-                            <i class="ti-calendar"></i> Last day
+                            <i class="ti-calendar"></i>
+                            <input type="date" style="border: 1px solid #CCC5B9; border-radius: 4px;">
                         </div>
                     </div>
                 </div>

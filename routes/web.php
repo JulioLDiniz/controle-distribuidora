@@ -12,13 +12,11 @@
 */
 use App\Produto;
 
-Route::get('/', function () {
-    return view('layout.index');
-});
+Route::get('/','DashboardController@index');
 
 Route::get('teste', function(){
 //	echo date('d/m/Y \à\s H:i:s');
-    echo date("Y-m-d H:i:s", time());
+    echo date("Y-m-d", time());
 });
 Route::get('/produtos', 'ProdutoController@index');
 
