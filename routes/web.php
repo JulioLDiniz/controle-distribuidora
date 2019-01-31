@@ -11,6 +11,7 @@
 |
 */
 use App\Produto;
+use Illuminate\Http\Request;
 
 Route::get('/','DashboardController@index');
 
@@ -50,7 +51,7 @@ Route::post('/dar-baixa-saldo', 'ClienteController@darBaixaSaldo' );
 
 Route::get('dashboard', 'DashboardController@index');
 
-Route::get('/vendas', function () {
+Route::get('/vendas', function (Request $request) {
     $vendas = new \App\Dashboard();
-    return $vendas->vendasDoDia('2019-01-25 17:16:03');
+    return $vendas->vendasDoDia($request->date);
 });

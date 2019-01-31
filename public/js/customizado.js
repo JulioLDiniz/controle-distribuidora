@@ -55,7 +55,7 @@ $('#modal-baixa-saldo').on('show.bs.modal', function (event) {
 
 });
 
-$('#formulario').submit(function ( event ) {
+$('#formulario').submit(function (event) {
     event.preventDefault();
 });
 
@@ -100,11 +100,11 @@ var array = new Array();
 $('#add').click(function () {
     var produto = {};
 
-    if($("#quantidadecompra").val()== null || $("#quantidadecompra").val() ==""){
+    if ($("#quantidadecompra").val() == null || $("#quantidadecompra").val() == "") {
         $(document).ready(function () {
             demo.showNotification("danger", "Insira a quantidade de produtos");
         });
-        return ;
+        return;
     }
 
     if (!$('#descricao').val()) {
@@ -206,5 +206,18 @@ $('#finalizar').on('click', function () {
 
     // var tbody = $('#tableCarrinhoCompras > tr:nth-child($i) input').val();
     // alert(tbody);
+});
+
+$('#venda-date').change(function () {
+    $.ajax({
+        type: "GET",
+        url: '/vendas',
+        data: {date: $("#venda-date").val()},
+        success: function (response) {
+            $('#venda').text(response);
+        }
+
+
+    });
 });
 

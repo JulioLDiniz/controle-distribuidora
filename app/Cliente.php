@@ -23,7 +23,7 @@ class Cliente extends Model
     public function listaTodos()
     {
         if ($this->all()) {
-            return $this->all();
+            return $this->orderBy('nome','asc')->get();
         } else {
             return false;
         }

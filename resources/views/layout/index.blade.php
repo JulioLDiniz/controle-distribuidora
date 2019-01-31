@@ -63,7 +63,7 @@
 						<a href="produtos" class="nav nav-second-level" >
 							<i class="ti-shopping-cart"></i>
 							<p>Produto</p>
-						</a>		
+						</a>
 					</li>
 					<li>
 						<a href="caixa">

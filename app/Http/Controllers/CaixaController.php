@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class CaixaController extends Controller
 {
     public function index(){
-        $clientes = \App\Cliente::all();
+        $clientes = new Cliente();
+        $clientes = $clientes->listaTodos();
     	return view('caixa.index', compact('clientes',$clientes));
     }
 

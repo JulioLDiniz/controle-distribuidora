@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dashboard extends Model
 {
-    public function getProdutosMenosDeCincoItens()
+    public static function getProdutosMenosDeCincoItens()
     {
-        $produtos = Produto::where('quantidade','<=',5)->get();
+        $produtos = Produto::where('quantidade','<=',5)->count();
 
         return $produtos;
     }
 
-    public function vendasDoDia($date){
+    public static function vendasDoDia($date){
         $vendas = Caixa::whereDate('created_at',$date)->sum('valor');
         return $vendas;
     }

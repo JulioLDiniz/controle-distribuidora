@@ -1,4 +1,5 @@
 @extends('layout.index')
+@section('pagina', 'Caixa')
 @section('conteudo')
 
     <h1 class="text-center">Caixa</h1>
