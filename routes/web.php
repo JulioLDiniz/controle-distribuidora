@@ -13,7 +13,9 @@
 use App\Produto;
 use Illuminate\Http\Request;
 
-Route::get('/','DashboardController@index');
+Route::get('/',function (){
+    return view('welcome');
+});
 
 Route::get('teste', function(){
 //	echo date('d/m/Y \à\s H:i:s');
@@ -55,3 +57,7 @@ Route::get('/vendas', function (Request $request) {
     $vendas = new \App\Dashboard();
     return $vendas->vendasDoDia($request->date);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
