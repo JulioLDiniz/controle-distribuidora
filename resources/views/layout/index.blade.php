@@ -6,7 +6,7 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Paper Dashboard by Creative Tim</title>
+	<title>Distribuidora - @yield('titulo')</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<meta name="viewport" content="width=device-width" />
@@ -47,7 +47,7 @@
 				</div>
 
 				<ul class="nav">
-					<li class="active">
+					<li >
 						<a href="dashboard">
 							<i class="ti-pie-chart"></i>
 							<p>Dashboard</p>
@@ -90,31 +90,31 @@
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-right">
+							{{--<li>--}}
+								{{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+									{{--<i class="ti-panel"></i>--}}
+									{{--<p>Stats</p>--}}
+								{{--</a>--}}
+							{{--</li>--}}
+							{{--<li class="dropdown">--}}
+								{{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+									{{--<i class="ti-bell"></i>--}}
+									{{--<p class="notification">5</p>--}}
+									{{--<p>Notifications</p>--}}
+									{{--<b class="caret"></b>--}}
+								{{--</a>--}}
+								{{--<ul class="dropdown-menu">--}}
+									{{--<li><a href="#">Notification 1</a></li>--}}
+									{{--<li><a href="#">Notification 2</a></li>--}}
+									{{--<li><a href="#">Notification 3</a></li>--}}
+									{{--<li><a href="#">Notification 4</a></li>--}}
+									{{--<li><a href="#">Another notification</a></li>--}}
+								{{--</ul>--}}
+							{{--</li>--}}
 							<li>
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="ti-panel"></i>
-									<p>Stats</p>
-								</a>
-							</li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="ti-bell"></i>
-									<p class="notification">5</p>
-									<p>Notifications</p>
-									<b class="caret"></b>
-								</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Notification 1</a></li>
-									<li><a href="#">Notification 2</a></li>
-									<li><a href="#">Notification 3</a></li>
-									<li><a href="#">Notification 4</a></li>
-									<li><a href="#">Another notification</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="#">
-									<i class="ti-settings"></i>
-									<p>Settings</p>
+								<a href="logout">
+									<i class="ti-arrow-circle-right"></i>
+									<p>Logout</p>
 								</a>
 							</li>
 						</ul>

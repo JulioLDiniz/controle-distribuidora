@@ -1,4 +1,5 @@
 @extends('layout.index')
+@section('titulo', 'Produto Listagem')
 @section('pagina', 'Produto')
 
 @section('conteudo')

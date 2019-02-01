@@ -220,4 +220,11 @@ $('#venda-date').change(function () {
 
     });
 });
+;
+
+$( ".nav li" ).each(function( index ) {
+    if ($( this ).text().trim() === $('.navbar-brand').html()) {
+        $(this).addClass('active');
+    }
+});
 

@@ -1,5 +1,5 @@
 @extends('layout.index')
-
+@section('titulo', 'Cliente Historico')
 @section('pagina','Cliente')
 @section('conteudo')
 

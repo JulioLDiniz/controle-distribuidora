@@ -9,7 +9,7 @@ class Dashboard extends Model
 {
     public static function getProdutosMenosDeCincoItens()
     {
-        $produtos = Produto::where('quantidade','<=',5)->count();
+        $produtos = Produto::where('quantidade','<=',6)->count();
 
         return $produtos;
     }
