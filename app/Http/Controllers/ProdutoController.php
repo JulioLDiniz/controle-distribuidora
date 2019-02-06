@@ -19,6 +19,9 @@ class ProdutoController extends Controller
 
     public function cadastrar(Request $request){
     	$produto = new Produto();
+    	if($produto->where('codigo_de_barras',$request->input('codigodebarras'))->first()){
+            return redirect()->back()->with(['message' => 'Já existe um produto cadastrado com esse código de barras', 'type-message'=>'danger']);
+        }
     	$produto->codigo_de_barras = $request->input('codigodebarras');
         $produto->descricao = $request->input('descricao');
     	$produto->preco = $request->input('preco');
@@ -36,6 +39,9 @@ class ProdutoController extends Controller
 
     public function alterar(Request $request){
         $produto = new Produto();
+        if($produto->where('codigo_de_barras',$request->input('codigo_de_barras'))->first()){
+            return redirect()->back()->with(['message' => 'Já existe um produto cadastrado com esse código de barras', 'type-message'=>'danger']);
+        }
         $produto->altera($request->id, $request->all());
         return redirect()->to('/produtos')->with(['message' => 'Alterado com sucesso', 'type-message'=>'success']);
     }

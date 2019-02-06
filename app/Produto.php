@@ -94,4 +94,6 @@ class Produto extends Model
         $produto->update();
         $movimentacao->save();
     }
+
+
 }
